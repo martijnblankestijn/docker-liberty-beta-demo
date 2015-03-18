@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server description="new server">
+    <include location="datasource.xml" />
+    <include location="features.xml" />
+    <include location="logging.xml" />
+  <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
+  <httpEndpoint id="defaultHttpEndpoint" httpPort="9080" httpsPort="9443" />
+  <applicationMonitor updateTrigger="mbean" />
+</server>
+
