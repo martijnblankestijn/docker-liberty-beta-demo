@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server>
+  <library description="Driver for H2 database" id="h2-driver" name="h2-driver">
+    <fileset dir="${shared.resource.dir}/h2" includes="*.jar" />
+  </library>
+  <dataSource type="javax.sql.DataSource" id="h2-default-datasource" jndiName="jdbc/DefaultDataSource">
+    <jdbcDriver javax.sql.DataSource="org.h2.jdbcx.JdbcDataSource"
+                javax.sql.ConnectionPoolDataSource="org.h2.jdbcx.JdbcDataSource"
+                javax.sql.XADataSource="org.h2.jdbcx.JdbcDataSource"
+                libraryRef="h2-driver" />
+      <!-- See
+          - docker links https://docs.docker.com/userguide/dockerlinks/
+          - websphere liberty environment variables: http://www-01.ibm.com/support/knowledgecenter/api/content/nl/nl/SSCKBL_8.5.5/com.ibm.websphere.wlp.nd.doc/ae/twlp_setup_vars.html
+
+          ENVIRONMENT VARIABLE
+                DB_PORT_1521_TCP=tcp://172.17.0.9:1521
+                DB_PORT_1521_TCP_ADDR=172.17.0.9
+                DB_PORT_1521_TCP_PORT=1521
+                DB_PORT_1521_TCP_PROTO=tcp
+          DO NOT USE ${env.DB_PORT_1521_TCP} in datasource.xml as one of the slashes is stripped!!!!!!
+          This leads to a connection error
+        -->
+      <properties URL="jdbc:h2:tcp://${env.DB_PORT_1521_TCP_ADDR}:${env.DB_PORT_1521_TCP_PORT}/./wlp-pocDB"
+                  user="sa"
+                  password="sa" />
+  </dataSource>
+</server>
+

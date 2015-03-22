@@ -80,7 +80,7 @@
                 <version>0.2.3</version>
                 <!-- Run with 'mvn clean package docker:build'  -->
                 <configuration>
-                    <imageName>wlp-poc</imageName>
+                    <imageName>liberty-docker-poc</imageName>
                     <dockerDirectory>src/main/docker</dockerDirectory>
                     <resources>
                         <resource>
