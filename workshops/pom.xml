@@ -81,7 +81,7 @@
                 <!-- Run with 'mvn clean package docker:build'  -->
                 <configuration>
                     <imageName>liberty-docker-poc</imageName>
-                    <dockerDirectory>src/main/docker</dockerDirectory>
+                    <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>

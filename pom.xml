@@ -25,4 +25,20 @@ limitations under the License.
         <module>workshops</module>
         <module>workshops-st</module>
     </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.spotify</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>0.2.3</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>

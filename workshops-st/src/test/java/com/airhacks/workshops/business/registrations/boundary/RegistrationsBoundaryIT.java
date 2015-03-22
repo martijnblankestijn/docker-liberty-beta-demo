@@ -30,9 +30,12 @@ public class RegistrationsBoundaryIT {
 
     @Before
     public void initClient() {
+        String container = System.getProperty("container");
+        System.out.println("SERVER: "  + container);
         this.client = ClientBuilder.newBuilder().
                 build();
         this.rut = client.target(RUT_URI);
+        this.rut = client.target("http://" + container + "/workshops/resources/registrations");
     }
 
     @Test
