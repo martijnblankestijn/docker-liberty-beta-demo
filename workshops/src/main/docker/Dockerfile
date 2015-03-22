@@ -10,7 +10,6 @@ COPY logging.xml /opt/ibm/wlp/usr/servers/defaultServer/
 
 RUN mkdir -p /opt/ibm/wlp/usr/shared/resources/h2
 COPY h2-1.3.176.jar /opt/ibm/wlp/usr/shared/resources/h2/
-COPY h2-connect-1.0-SNAPSHOT.jar /opt/
 
 EXPOSE 9080
 EXPOSE 9443
